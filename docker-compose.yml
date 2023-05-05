@@ -26,8 +26,8 @@ services:
     ports:
       - 3306:3306 # ホスト側ポート番号を3306, コンテナ側ポート番号を3306に指定
     environment: # 環境変数の設定
-      MYSQL_DATABASE: database
-      MYSQL_USER: db-user
+      MYSQL_DATABASE: training
+      MYSQL_USER: training-user
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
       TZ: 'Asia/Tokyo'
