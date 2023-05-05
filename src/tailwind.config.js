@@ -17,4 +17,11 @@ module.exports = {
     },
 
     plugins: [require('@tailwindcss/forms')],
+
+    content: [
+        './storage/framework/views/*.php',
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
+    ],
 };
