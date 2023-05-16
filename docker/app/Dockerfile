@@ -6,7 +6,7 @@ ENV TZ Asia/Tokyo
 
 # インストール可能なパッケージの一覧を更新
 RUN apt-get update && \
-  # npmがコマンドが使えるようにする
+  # npmコマンドが使えるようにする
   curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
   # Laravel開発に必要なパッケージをインストール
   apt-get install -y git unzip libzip-dev libicu-dev libonig-dev nodejs && \
