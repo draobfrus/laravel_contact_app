@@ -7,7 +7,10 @@ services:
       dockerfile: ./docker/app/Dockerfile # Dockerファイルの場所
     volumes:
       - ./src/:/app # ホスト側./src/をコンテナ側/appにマウント
-
+      # 後述の名前付きボリュームvendor-volumeをコンテナ側/app/vendorにマウント
+      # /vendor以下をホスト側と同期させず、分離する。
+      # 開発環境の動きが速くなるが、コンテナを起動するたびに`composer install`が必要になる。
+      - vendor-volume:/app/vendor
   web:
     build:
       context: . # buildを実行する場所
@@ -25,7 +28,8 @@ services:
       dockerfile: ./docker/db/Dockerfile # Dockerファイルの場所
     ports:
       - 3306:3306 # ホスト側ポート番号を3306, コンテナ側ポート番号を3306に指定
-    environment: # 環境変数の設定
+    environment:
+      # 環境変数の設定
       MYSQL_DATABASE: training
       MYSQL_USER: training-user
       MYSQL_PASSWORD: password
@@ -34,5 +38,7 @@ services:
     volumes:
       - mysql-volume:/var/lib/mysql # 後述の名前付きボリュームmysql-volumeをコンテナ側/var/lib/mysqlにマウント
 
-volumes: # コンテナを破棄してもデータを永続的に保存できるように、コンテナ外に提供されているデータの保存領域
-  mysql-volume: # 名前付きボリュームを定義
+volumes:
+  # コンテナを破棄してもデータを永続的に保存できるように、コンテナ外に提供されているデータの保存領域
+  mysql-volume:
+  vendor-volume:
