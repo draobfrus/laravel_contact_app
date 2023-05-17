@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Department;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -13,7 +15,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::all();
+        $contacts = Contact::all();
+        return view('contacts.index', ['departments' => $departments, 'contacts' => $contacts]); //
     }
 
     /**
@@ -23,7 +27,8 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::all();
+        return view('contacts.create', ['departments' => $departments]); //
     }
 
     /**
