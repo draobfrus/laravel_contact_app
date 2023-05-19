@@ -1,21 +1,3 @@
-<h1>部署・部署長一覧</h1>
-<table>
-    <thead>
-        <tr>
-            <th>部署名</th>
-            <th>部署長名</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($departments as $department)
-        <tr>
-            <td>{{ $department->name }}</td>
-            <td>{{ $department->manager_name }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-
 <h1>問合せ一覧</h1>
 <table>
     <thead>
@@ -37,3 +19,4 @@
         @endforeach
     </tbody>
 </table>
+<a href="{{ route('contacts.create') }}">問合せを作成する</a>
