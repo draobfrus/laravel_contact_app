@@ -19,12 +19,12 @@ class ContactController extends Controller
 
     public function __construct(ContactRepositoryInterface $contactRepository)
     {
-        $this->ContactRepository = $contactRepository;
+        $this->contactRepository = $contactRepository;
     }
 
     public function index()
     {
-        $contacts = $this->ContactRepository->getAllContacts();
+        $contacts = $this->contactRepository->getAllContacts();
         return view('contacts.index', ['contacts' => $contacts]);
     }
 
