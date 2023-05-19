@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Department;
 use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
+use App\Repositories\Contact\ContactRepositoryInterface;
 
 class ContactController extends Controller
 {
@@ -14,11 +15,17 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected ContactRepositoryInterface $contactRepository;
+
+    public function __construct(ContactRepositoryInterface $contactRepository)
+    {
+        $this->ContactRepository = $contactRepository;
+    }
+
     public function index()
     {
-        $departments = Department::all();
-        $contacts = Contact::all();
-        return view('contacts.index', ['departments' => $departments, 'contacts' => $contacts]); //
+        $contacts = $this->ContactRepository->getAllContacts();
+        return view('contacts.index', ['contacts' => $contacts]);
     }
 
     /**
