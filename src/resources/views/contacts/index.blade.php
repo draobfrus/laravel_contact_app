@@ -1,4 +1,5 @@
 <h1>問合せ一覧</h1>
+<a href="{{ route('contacts.create') }}">問合せを作成する</a>
 <table>
     <thead>
         <tr>
@@ -19,4 +20,3 @@
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('contacts.create') }}">問合せを作成する</a>

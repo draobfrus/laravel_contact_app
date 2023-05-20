@@ -34,8 +34,8 @@ class ContactController extends Controller
      */
     public function create()
     {
-        $departments = Department::all();
-        return view('contacts.create', ['departments' => $departments]); //
+        $departments = $this->contactService->getAllDepartments();
+        return view('contacts.create', ['departments' => $departments]);
     }
 
     /**
