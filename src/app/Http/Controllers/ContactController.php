@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Department;
-use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
 use App\Services\Contact\ContactServiceInterface;
 
@@ -48,7 +47,7 @@ class ContactController extends Controller
     public function store(ContactRequest $request)
     {
         $validated = $request->validated();
-        Contact::create($validated);
+        $this->contactService->createContact($validated);
         return redirect('contacts');
     }
 

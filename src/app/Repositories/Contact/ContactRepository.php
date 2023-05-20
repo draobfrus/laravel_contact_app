@@ -10,4 +10,9 @@ class ContactRepository implements ContactRepositoryInterface
     {
         return Contact::all();
     }
+
+    public function createContact($request)
+    {
+        return Contact::create($request);
+    }
 }
