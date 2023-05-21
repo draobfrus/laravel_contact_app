@@ -153,6 +153,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'department_id' => '部署名',
+        'name' => '名前',
+        'email' => 'メールアドレス',
+        'content' => 'お問い合わせ内容',
+        'age' => '年齢',
+        'gender' => '性別'
+    ],
 
 ];
