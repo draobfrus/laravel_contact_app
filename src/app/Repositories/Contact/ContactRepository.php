@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repositories\Contact;
 
 use App\Models\Department;
@@ -17,8 +19,16 @@ class ContactRepository implements ContactRepositoryInterface
         return Department::all();
     }
 
-    public function createContact($request)
+    public function createContact(int $department_id, string $name, string $email, string $content, int $age, int $gender)
     {
-        return Contact::create($request);
+        $contact = Contact::create([
+            'department_id' => $department_id,
+            'name' => $name,
+            'email' => $email,
+            'content' => $content,
+            'age' => $age,
+            'gender' => $gender
+        ]);
+        return $contact;
     }
 }
