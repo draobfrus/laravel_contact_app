@@ -6,20 +6,30 @@ namespace App\Repositories\Contact;
 
 use App\Models\Department;
 use App\Models\Contact;
+use Illuminate\Support\Collection;
 
 class ContactRepository implements ContactRepositoryInterface
 {
-    public function getAllContacts()
+    /**
+     * @inheritDoc
+     */
+    public function getAllContacts(): Collection
     {
         return Contact::with('department')->orderBy('id', 'desc')->get();
     }
 
-    public function getAllDepartments()
+    /**
+     * @inheritDoc
+     */
+    public function getAllDepartments(): Collection
     {
         return Department::all();
     }
 
-    public function createContact(int $department_id, string $name, string $email, string $content, int $age, int $gender)
+    /**
+     * @inheritDoc
+     */
+    public function createContact(int $department_id, string $name, string $email, string $content, int $age, int $gender): Contact
     {
         $contact = Contact::create([
             'department_id' => $department_id,
