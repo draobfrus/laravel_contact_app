@@ -45,14 +45,14 @@ class ContactController extends Controller
      */
     public function store(ContactRequest $request)
     {
-        $validated = $request->validated();
         $this->contactService->createContact(
-            $validated['department_id'],
-            $validated['name'],
-            $validated['email'],
-            $validated['content'],
-            $validated['age'],
-            $validated['gender']
+            $request['department_id'],
+            $request['name'],
+            $request['email'],
+            $request['content'],
+            $request['age'],
+            $request['gender']
+
         );
         return redirect('contacts');
     }
