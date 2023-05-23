@@ -9,6 +9,9 @@ class Department extends Model
 {
     use HasFactory;
 
+    /**
+     * 部署ごとのお問い合わせを取得
+     */
     public function contacts()
     {
         return $this->hasMany(Contact::class);
