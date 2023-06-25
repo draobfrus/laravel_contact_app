@@ -1,7 +1,7 @@
 # Laravel Contact App
 
-  <img src="https://img.shields.io/badge/php-v8.1.8-blueviolet">
-  <img src="https://img.shields.io/badge/laravel-v8.83.27-ff69b4">
+  <img alt src="https://img.shields.io/badge/php-v8.1.8-blueviolet">
+  <img alt src="https://img.shields.io/badge/laravel-v8.83.27-ff69b4">
 
 <br />
 

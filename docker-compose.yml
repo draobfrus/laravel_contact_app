@@ -16,7 +16,7 @@ services:
       context: . # buildを実行する場所
       dockerfile: ./docker/web/Dockerfile # Dockerファイルの場所
     ports:
-      - 8080:80 # ホスト側ポート番号を8080, コンテナ側ポート番号を80に指定
+      - '8080:80' # ホスト側ポート番号を8080, コンテナ側ポート番号を80に指定
     depends_on:
       - app # phpの後にnginxを起動する
     volumes:
@@ -27,7 +27,7 @@ services:
       context: . # buildを実行する場所
       dockerfile: ./docker/db/Dockerfile # Dockerファイルの場所
     ports:
-      - 3306:3306 # ホスト側ポート番号を3306, コンテナ側ポート番号を3306に指定
+      - '3306:3306' # ホスト側ポート番号を3306, コンテナ側ポート番号を3306に指定
     environment:
       # 環境変数の設定
       MYSQL_DATABASE: training
